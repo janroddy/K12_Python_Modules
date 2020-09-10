@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Python Basics</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div w3-include-html="left_navbar.html"></div> 
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <div w3-include-html="top_navbar.html"></div> 
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Python Basics</h1>
+          </div>
+
+          <div class="row">
+          <div class="col-lg-4">
+
+          <!-- Operators Collapsable Card -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#OperatorsCollapseCard" class="card border-left-primary d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <div class="col mr-2">
+                      <div class="fas fa-clock text-xs font-weight-bold text-primary text-uppercase mb-1"> Est time: 45 mins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Variables, Types & Operators</div>
+                    </div>
+                  <div class="col-auto">
+                      <img src="thumbnails/operators_thumbnail.PNG">
+                  </div>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse hide" id="OperatorsCollapseCard">
+                  <div class="card-body">
+                   <p style="text-align: left">
+                        <h4> Learning Outcomes: </h4>
+                          Upon completion of this module, students should understand the basics of Python variables, data types, and operators, including:
+                          <ul>
+                            <li style="text-align: left">Naming variables</li>
+                            <li style="text-align: left">Assigning values to variables </li>
+                            <li style="text-align: left">Common data types </li>
+                            <li style="text-align: left">Common Python operators</li>
+                            <li style="text-align: left">Order of operations</li>
+                            <li style="text-align: left">Computing equations</li>
+                          </ul>
+
+                          <p style="text-align: center">
+                            <a href="https://drive.google.com/drive/folders/1b8MGbDPzDy279mtDnG00BH3A_mv7vyXc" class="btn btn-primary btn-lg">Download exercises <br>(vars_ops_types.ipynb)</a>
+                          </p>
+                    </p>
+                  </div> <!-- end of card body -->
+                </div> <!-- end of card content -->
+                  
+                </div> 
+              <!-- end of Operators Collapsable Card -->
+            </div> <!-- end of col-lg-4 -->
+
+            <div class="col-lg-4">
+
+          <!-- Output Collapsable Card -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#OutputCollapseCard" class="card border-left-primary d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <div class="col mr-2">
+                      <div class="fas fa-clock text-xs font-weight-bold text-primary text-uppercase mb-1"> Est time: 20 mins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Output (Print)</div>
+                    </div>
+                  <div class="col-auto" style="padding-top: 10px; padding-bottom: 9px;">
+                      <img src="thumbnails/print_thumbnail.PNG">
+                  </div>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse hide" id="OutputCollapseCard">
+                  <div class="card-body">
+                   <p style="text-align: left;">
+                        <h4> Learning Outcomes: </h4>
+                          Upon completion of this module, students should understand:
+                          <ul>
+                            <li style="text-align: left">Python <code>print</code>statement</li>
+                            <li style="text-align: left">How to format floats for display</li>
+                          </ul>
+                          <br><br><br><br><br><br>
+                          <p style="text-align: center">
+                            <a href="https://drive.google.com/drive/folders/1b8MGbDPzDy279mtDnG00BH3A_mv7vyXc" class="btn btn-primary btn-lg">Download exercises (print.ipynb)</a>
+                          </p>
+                    </p>
+                  </div> <!-- end of card body -->
+                </div> <!-- end of card content -->
+                  
+                </div> 
+              <!-- end of Output Collapsable Card -->
+            </div> <!-- end of col-lg-4 -->
+          <div class="col-lg-4">
+
+          <!-- Loops Collapsable Card -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#LoopsCollapseCard" class="card border-left-primary d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <div class="col mr-2">
+                      <div class="fas fa-clock text-xs font-weight-bold text-primary text-uppercase mb-1"> Est time: 60 mins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Loops and Control Structures</div>
+                    </div>
+                  <div class="col-auto" style="padding-top: 2px">
+                      <img src="thumbnails/loops_thumbnail.PNG">
+                  </div>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse hide" id="LoopsCollapseCard">
+                  <div class="card-body">
+                   <p style="text-align: left">
+                        <h4> Learning Outcomes: </h4>
+                          Upon completion of this module, students should understand the basics of some programming control structures, including:
+                          <ul>
+                            <li style="text-align: left"><code>If-Else </code>statement</li>
+                            <li style="text-align: left"><code>For </code>loop, including Python's <code>Range</code> function
+                            <li style="text-align: left"><code>While </code>loop</li>
+                            <li style="text-align: left">Differences between <code>For </code> loops and <code>While </code> loops</li>
+                          </ul>
+                          
+                          <p style="text-align: center">
+                            <a href="https://drive.google.com/drive/folders/1b8MGbDPzDy279mtDnG00BH3A_mv7vyXc" class="btn btn-primary btn-lg">Download exercises (control_structs.ipynb)</a>
+                          </p>
+                    </p>
+                  </div> <!-- end of card body -->
+                </div> <!-- end of card content -->
+                  
+                </div> 
+              <!-- end of Functions Collapsable Card -->
+            </div> <!-- end of col-lg-4 -->
+          <div class="col-lg-4">
+
+          <!-- Functions Collapsable Card -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#FunctionsCollapseCard" class="card border-left-primary d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <div class="col mr-2">
+                      <div class="fas fa-clock text-xs font-weight-bold text-primary text-uppercase mb-1"> Est time: 60 mins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Functions</div>
+                    </div>
+                  <div class="col-auto">
+                      <img src="thumbnails/functions_thumbnail.PNG">
+                  </div>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse hide" id="FunctionsCollapseCard">
+                  <div class="card-body">
+                   <p style="text-align: left">
+                        <h4> Learning Outcomes: </h4>
+                          Upon completion of this module, students should understand the basics of Python functions, including:
+                          <ul>
+                            <li style="text-align: left">How to define functions, including function header and body</li>
+                            <li style="text-align: left">Function parameters</li>
+                            <li style="text-align: left">User defined versus built-in functions</li>
+                            <li style="text-align: left">Returning a value from a function </li>
+                            <li style="text-align: left">Calling a function and printing the result</li>
+                            <li style="text-align: left">Variable scope</li>
+                          </ul>
+                          <p style="text-align: center">
+                            <a href="https://drive.google.com/drive/folders/1b8MGbDPzDy279mtDnG00BH3A_mv7vyXc" class="btn btn-primary btn-lg">Download exercises (functions.ipynb)</a>
+                          </p>
+                    </p>
+                  </div> <!-- end of card body -->
+                </div> <!-- end of card content -->
+                  
+                </div> 
+              <!-- end of Functions Collapsable Card -->
+            </div> <!-- end of col-lg-4 -->
+          <div class="col-lg-4">
+
+          <!-- Libraries Collapsable Card -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#LibrariesCollapseCard" class="card border-left-primary d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <div class="col mr-2">
+                      <div class="fas fa-clock text-xs font-weight-bold text-primary text-uppercase mb-1"> Est time: 60 mins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Libraries</div>
+                    </div>
+                  <div class="col-auto" style="padding-top: 20px">
+                      <img src="thumbnails/libraries_thumbnail.PNG">
+                  </div>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse hide" id="LibrariesCollapseCard">
+                  <div class="card-body">
+                   <p style="text-align: left">
+                        <h4> Learning Outcomes: </h4>
+                          Upon completion of this module, students should understand the basics of Python libraries, including:
+                          <ul>
+                            <li style="text-align: left">Matplotlib</li>
+                            <li style="text-align: left">NumPy</li>
+                            <li style="text-align: left">Resources for looking up library functions</li>
+                          </ul>
+
+                          <p style="text-align: center">
+                            <a href="https://drive.google.com/drive/folders/1b8MGbDPzDy279mtDnG00BH3A_mv7vyXc" class="btn btn-primary btn-lg">Download exercises (Matplotlib.ipynb, NumPy.ipynb)</a>
+                          </p>
+                    </p>
+                  </div> <!-- end of card body -->
+                </div> <!-- end of card content -->
+                  
+                </div> 
+              <!-- end of Libraries Collapsable Card -->
+            </div> <!-- end of col-lg-4 -->
+
+            </div> <!-- end of row. -->
+
+          </div> <!-- End of Page Content -->
+          
+
+        <!-- /.container-fluid -->
+
+      </div> <!-- End of Main Content -->
+      
+      <div w3-include-html="footer.html">
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+  <script>includeHTML();</script>
+
+</body>
+
+</html>

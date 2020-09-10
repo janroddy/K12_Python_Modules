@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Python Modules</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Styles for photo gallery-->
+  <style>
+  div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 100px;
+    height: auto;
+  }
+
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  </style>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div w3-include-html="left_navbar.html"></div> 
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <div w3-include-html="top_navbar.html"></div> 
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Jumbotron Header -->
+          <header class="jumbotron my-0">
+            <h1 class="display-4 text-primary" style="text-align: center">Python modules for <br>K12 classrooms</h1>
+            <hr class="my-4">
+             <p class="lead text-gray-800">Select among the topics to the left to access learning outcomes, exercises, and python code for a particular subject area. </p>
+             <p class="lead text-gray-800"><a href="https://umt.co1.qualtrics.com/jfe/form/SV_5c1GcRYIbsRJWIJ">Register early</a> for one of the other PD workshops we will teach in Summer 2021. </p>
+          </header>
+          <br>
+          <div>
+            <i text-gray-800>Add your school to others that have already piloted these modules</i>
+          </div>
+          <div class="gallery ">
+            <a target="_blank" href="https://www.mcpsmt.org/bigsky">
+              <img src="./thumbnails/bigsky.PNG" alt="Big Sky logo" >
+            </a>
+            <div class="desc text-xs">Big Sky HS<br>Missoula, MT</div>
+          </div>
+
+          <div class="gallery">
+            <a target="_blank" href="https://www.mcpsmt.org/sentinel">
+              <img src="./thumbnails/sentinel1.PNG" alt="Sentinel HS" >
+            </a>
+            <div class="desc text-xs">Sentinel HS<br>Missoula, MT</div>
+          </div>
+
+        </div>
+
+   </div>
+              
+      <!-- End of Main Content -->
+
+      <div w3-include-html="footer.html">
+      
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+  <script>includeHTML();</script>
+
+
+</body>
+
+</html>

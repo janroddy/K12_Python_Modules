@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Algebra</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div w3-include-html="left_navbar.html"></div> 
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <div w3-include-html="top_navbar.html"></div> 
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Algebra</h1>
+          </div>
+
+          <div class="row">
+          <div class="col-lg-4">
+
+          <!-- Algebra Collapsable Card 1 -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#AlgebraCollapseCard" class="card border-left-primary d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <div class="col mr-2">
+                      <div class="fas fa-clock text-xs font-weight-bold text-primary text-uppercase mb-1"> Est time: 90 mins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Sequences</div>
+                    </div>
+                  <div class="col-auto">
+                      <img src="thumbnails/arith_seq_thumbnail.PNG">
+                  </div>
+                </a>
+                <!-- Card Content - Collapse -->
+                <div class="collapse show" id="AlgebraCollapseCard">
+                  <div class="card-body">
+                   <p style="text-align: left">
+                        <h4> Learning Outcomes: </h4>
+                          Upon completion of this module, students should understand:
+                          <ul>
+                            <li style="text-align: left">find the <i><strong>n</strong></i>th term of arithmetic and geometric sequences</li>
+                            <li style="text-align: left">find the sum up to <i><strong>n</strong></i> terms of arithmetic and geometric sequence</li>
+                            <li style="text-align: left">print a geometric Sequence</li>
+                            <li style="text-align: left">assign a variable in Python </li>
+                            <li style="text-align: left">use mathematical operators in Python</li>
+                            <li style="text-align: left">call Python functions, including with parameters</li>
+                            <li style="text-align: left">Python <code>for</code> loops</li>
+
+                          </ul>
+
+                          <p style="text-align: center">
+                            <a href="alg_sequences.html" class="btn btn-primary btn-lg">Download modules</a>
+                          </p>
+                    </p>
+                  </div> <!-- end of card body -->
+                </div> <!-- end of card content -->
+                  
+                </div> 
+              <!-- end of Algebra Collapsable Card 1 -->
+            </div> <!-- end of col-lg-4 -->
+
+            <div class="col-lg-4">
+              <!-- Algebra Collapsable Card 2 -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#AlgebraCollapseCard2" class="card border-left-primary d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <div class="col mr-2">
+                      <div class="fas fa-clock text-xs font-weight-bold text-primary text-uppercase mb-1"> Est time: 30 mins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Quadratic Formula</div>
+                    </div>
+                  <div class="col-auto">
+                      <img src="thumbnails/quad_formula_thumbnail.PNG">
+                  </div>
+                </a>
+                <!-- Card Content 2 - Collapse -->
+                <div class="collapse show" id="AlgebraCollapseCard2">
+                  <div class="card-body">
+                   <p style="text-align: left">
+                        <h4> Learning Outcomes: </h4>
+                          Upon completion of this module, students should be able to:
+                          <ul>
+                            <li style="text-align: left">find the x-intercepts of the quadratic equation</li>
+                            <li style="text-align: left">understand a plot of the quadratic equation</li>
+                            <li style="text-align: left">determine the number of solutions of a quadratic equation by considering its discriminant</li>
+                            <li style="text-align: left">assign a variable in Python </li>
+                            <li style="text-align: left">use mathematical operators in Python</li>
+                            <li style="text-align: left">call Python functions, including with parameters</li>
+                            <li style="text-align: left">understand Python <code>if-else</code> statements</li>
+                          </ul>
+
+                          <p style="text-align: center">
+                            <a href="alg_quad_formula.html" class="btn btn-primary btn-lg">Download modules</a>
+                          </p>
+                    </p>
+                  </div> <!-- end of card 2 body -->
+                </div> <!-- end of card 2 content --> 
+
+              </div> <!-- end of Algebra Collapsable Card 2 -->
+            </div> <!-- end of col-lg-4 -->
+
+
+              <!-- Algebra Collapsable Card 3 -->
+              <div class="col-lg-4">
+              
+              <div class="card shadow mb-4">
+                <!-- Card Header - Accordion -->
+                <a href="#AlgebraCollapseCard3" class="card border-left-primary d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <div class="col mr-2">
+                      <div class="fas fa-clock text-xs font-weight-bold text-primary text-uppercase mb-1"> Est time: 30 mins</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Synthetic Division</div>
+                    </div>
+                  <div class="col-auto">
+                      <img src="thumbnails/syn_div_thumbnail.PNG">
+                  </div>
+                </a>
+                <!-- Card Content 3 - Collapse -->
+                <div class="collapse show" id="AlgebraCollapseCard3">
+                  <div class="card-body">
+                   <p style="text-align: left">
+                        <h4> Learning Outcomes: </h4>
+                          Upon completion of this module, students should be able to:
+                          <ul>
+                            <li style="text-align: left">solve synthetic division of a polynomial</li>
+                            <li style="text-align: left">solve synthetic division of a polynomial when the dividend is a cubic polynomial and the divisor is linear</li>
+                            <li style="text-align: left">use variables in Python </li>
+                            <li style="text-align: left">use mathematical operators in Python to construct equations</li>
+                          </ul>
+                          <br>
+                          <br>
+                          <br>
+
+                          <p style="text-align: center">
+                            <a href="alg_syn_div.html" class="btn btn-primary btn-lg">Download modules</a>
+                          </p>
+                    </p>
+                  </div> <!-- end of card 3 body -->
+                </div> <!-- end of card 3 content --> 
+
+              </div> <!-- end of col-lg-4 -->
+            </div> <!-- end of Algebra Collapsable Card 3 --> 
+
+            </div> <!-- end of row. -->
+
+          </div> <!-- End of Page Content -->
+          
+
+        <!-- /.container-fluid -->
+
+      </div> <!-- End of Main Content -->
+      
+      <div w3-include-html="footer.html">
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+  <script>includeHTML();</script>
+
+</body>
+
+</html>
