@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Chemistry</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div w3-include-html="left_navbar.html"></div> 
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <div w3-include-html="top_navbar.html"></div> 
+
+        <!-- Page Content -->
+        <div class="container">
+
+        <!-- Page Features -->
+        <div class="row text-center">
+          <div class="card mb-4 py-3 border-bottom-primary">
+                <div class="card-body font-weight-bold text-primary text-uppercase mb-1" style="text-align: left">
+                  Chemistry
+                </div>
+            
+            <h4 class="card-title">&nbsp;&nbsp; Specific Heat exercises&nbsp; &nbsp;    </h4>
+          </div>
+
+            <p class="card-text text-left text-gray-800">
+              <ol>
+                <!--Add questions here--> 
+                <li style="text-align: left">1. How many joules of heat are needed to raise the temperature of 10.0 g of aluminum from 22°C to 55°C, if the specific heat of aluminum is 0.90 J/g°C?</li>
+                <li style="text-align: left">2.   100.0 g of 4.0°C water is heated until its temperature is 37°C.  If the specific heat of water is 4.18 J/g°C, calculate the amount of heat energy needed to cause this rise in temperature.</li>
+                <li style="text-align: left">3. A 15.75-g piece of iron absorbs 1086.75 joules of heat energy and its temperature changes from 25°C to 175°C.  Calculate the specific heat capacity of iron. </li>
+                <li style="text-align: left">4. Calculate the specific heat capacity of a piece of wood if 1500.0 g of the wood absorbs 6.75×104 joules of heat and its temperature changes from 32°C to 57°C.</li>
+                <li style="text-align: left">5.  25.0 g of mercury is heated from 25°C to 155°C, and absorbs 455 joules of heat in the process.  Calculate the specific heat capacity of mercury.</li>
+                <li style="text-align: left">6.  To what temperature will a 50.0 g piece of glass raise if it absorbs 5275 joules of heat and its specific heat capacity is 0.50 J/g°C?  The initial temperature of the glass is 20.0°C.</li>
+                <li style="text-align: left">7. What is the specific heat capacity of silver metal if 55.00 g of the metal absorbs 47.3 calories (change to Joules) of heat and the temperature rises 15.0°C?</li>
+                <li style="text-align: left">8.  If a sample of chloroform is initially at 25°C, what is its final temperature if 150.0 g of chloroform absorbs 1.1 kilojoules of heat, and the specific heat of chloroform is 0.96 J/g°C?</li>
+                <li style="text-align: left">9. How many joules of heat are needed to raise the temperature of 30.0 g of aluminum from 23°C to 67°C, if the specific heat of aluminum is 0.90 J/g°C?</li>
+                <li style="text-align: left">10. To what temperature will a 40.0 g piece of gold raise if it absorbs 6,432 joules of heat and its specific heat capacity is 0.13 J/g°C?  The initial temperature of the gold is 20.0°C.</li>
+               
+
+            <br><br>
+        </div>
+              
+            <h5>
+                <div class="fas fa-download text-xl font-weight-bold text-primary"> <a href="https://drive.google.com/drive/folders/1ErFApBC7Yf8FjWet8zFVh6c9-ZlU7ICr?usp=sharing"> &nbsp;Specific_Heat.ipynb</a><br><br>
+                </div>
+            </h5>
+              <div>
+              <a href="Chem_cards.html" class="btn btn-primary">Back</a>
+              &nbsp;&nbsp;&nbsp;
+              <a href="index.html" class="btn btn-primary">Home</a>
+
+            </p>
+            </div>
+
+    </div>
+    <!-- /.row -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <div w3-include-html="footer.html">
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+   <script>includeHTML();</script>
+
+</body>
+
+</html>
