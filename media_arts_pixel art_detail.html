@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain attribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
+</script>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Media Arts</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <div w3-include-html="left_navbar.html"></div> 
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <div w3-include-html="top_navbar.html"></div> 
+
+        <!-- Page Content -->
+        <div class="container">
+
+        <!-- Page Features -->
+        <div class="row text-center">
+          <div class="card mb-4 py-3 border-bottom-primary">
+                <div class="card-body font-weight-bold text-primary text-uppercase mb-1" style="text-align: left">
+                  Media Arts
+                </div>
+            
+            <h4 class="card-title">&nbsp;&nbsp; Pixel Art I. &nbsp; &nbsp;</h4>
+          </div>
+
+            <p class="card-text text-left text-gray-800">
+            <br>
+              Using the Python library Turtle Graphics to create pixel art. 
+
+          <div class="card mb-4 py-3 border-bottom-primary">
+              <br><h3>See the turtle in action</h3>
+              <br><h4 style="text-align: left">Instructions:</h4>
+         
+                <ol>
+                  <li style="text-align: left">Click the play button on the trinket window below. Trinket is a built in environment to run Python code in the browser and display the graphical output.</li>
+                  <li style="text-align: left">Look briefly at the code starting on line 30 and carefully read comments.</li>  
+                  <li style="text-align: left">On line 41 change the tina the turtle's color to "blue" by changing the line to tina.color("blue").  Run the code again.</li>
+                  <li style="text-align: left">On line 45 see the function call to snowflake().  The snowflake() function has one argument which is the size of the snowflake.  Change the argument in the parenthesis to 5 and run the code again.</li>
+                  <li style="text-align: left">Feel free to play around with code, changing the size background color, turtle color, size of the snowflake etc.</li>
+                </ol>
+              <br><br>
+              <iframe src="https://trinket.io/embed/python/e8d49f80cd" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+            </div>
+
+
+
+            <div class="row ">
+               <div class="card mb-4 py-3 border-bottom-primary">
+               <br>
+              <br><h3>Draw a Square</h3>
+              <br><h4 style="text-align: left">Instructions:</h4>
+        
+                <ol>
+                  <li style="text-align: left">Click the play button on the trinket window below. </li>
+                  <li style="text-align: left">Finish the square by using the forward() function and the left() function.</li>
+                  <li style="text-align: left">Find the line where the turtle tess is named. Rename your turtle to something else and run the code. What happens?</li>
+                  <li style="text-align: left">You will see red on the screen and and error message saying: "NameError: name 'tess' is not defined on line 11 in main.py", go to line 11 and let's fix it.  Python does not know who tess is anymore because you renamed the turtle.  Replace tess's first command on line 11 to be a command for your new turtle to move forward by using your turtle's name instead of tess.</li> 
+                  <li style="text-align: left">Replace the other times that we call give tess a command with your turtle's new name</li>
+                  <li style="text-align: left">Finish the square by using the forward() function which moves the turtle forward a certain number of pixels and the left() function which turns the turtle a certain number of degrees.</li>
+
+                </ol>
+              <br><br>
+              <iframe src="https://trinket.io/embed/python/ab21dee791" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+              </div>
+            </div>
+
+
+             <div class="row ">
+               <div class="card mb-4 py-3 border-bottom-primary">
+               <br>
+              <br><h3>What else can a turtle do?</h3>
+              <br><h4 style="text-align: left">Instructions:</h4>
+        
+                <ol>
+                  <li style="text-align: left">Run the trinket below to see a couple of more tricks that turtles can perform.</li>
+                  <li style="text-align: left">Find the line that that writes text to the screen and change the message that Charlie says.</li>
+                  <li style="text-align: left">Find one of the two circles that Charlie makes in the graphic and change the radius. Run the code again. What is different between the two circles?</li>
+                  <li style="text-align: left">Notice where the pen in the graphic comes up and the turtle moves without drawing.</li>
+                  <li style="text-align: left">Draw another circle below the first in a different color and size.</li>
+
+                </ol>
+
+              <br><br>
+              
+              <iframe src="https://trinket.io/embed/python/b6425c8838" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+              </div>
+            </div>
+
+            <div class="row ">
+               <div class="card mb-4 py-3 border-bottom-primary">
+               <br>
+              <br><h3>Draw a Snowman</h3>
+              <br><h4 style="text-align: left">Instructions:</h4>
+        
+                <ol>
+                  <li style="text-align: left">Create a turtle and use the skills you have learned to draw a snowman.</li>
+                  <li style="text-align: left">Review the code in the previous trinkets to draw circles, change position on the screen, change colors, add text, etc.</li>
+                  <li style="text-align: left">If you want to look for new functions for your turtle<a href="https://docs.python.org/3/library/turtle.html">read more about Turtle Graphic here.</a></li>
+                  <li style="text-align: left">For a challenge, add a hat, scarf, eyes and/or nose to your snowman.</li>
+                  
+                </ol>
+
+              <br><br>
+              
+              <iframe src="https://trinket.io/embed/python/383d70217f" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+
+
+              </div>
+            </div>
+
+            <div class="row ">
+               <div class="card mb-4 py-3 border-bottom-primary">
+               <br>
+              <br><h3>Free Draw</h3>
+              <br><h4 style="text-align: left">Instructions:</h4>
+        
+                <ol>
+                  <li style="text-align: left">Create a turtle and use the skills you have learned to draw a whatever you like.  If you don't have another idea you could make a logo with your name and different colors and shapes.</li>
+                  <li style="text-align: left">Again, review the code in the previous trinkets to draw circles, change position on the screen, change colors, add text, etc.</li>
+                  <li style="text-align: left">If you want to look for new functions for your turtle <a href="https://docs.python.org/3/library/turtle.html">read more about Turtle Graphic here.</a></li>
+                  <li style="text-align: left">Have fun!</li>
+                  
+                </ol>
+
+              <br><br>
+              
+              <iframe src="https://trinket.io/embed/python/3e75b06089" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+
+              </div>
+            </div>
+
+
+              <a href="media_arts_cards.html" class="btn btn-primary">Back</a>
+
+          </p>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <div w3-include-html="footer.html">
+      
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+  <script>includeHTML();</script>
+
+
+</body>
+
+</html>
